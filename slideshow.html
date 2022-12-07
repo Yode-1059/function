@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スライドショー</title>
+</head>
+<style>
+    ul {
+    position: relative;
+    width: 500px;
+    margin: auto;
+    padding-left: 0;
+    list-style: none;
+    }
+
+    li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    }
+
+    .active {
+    position: relative;
+    opacity: 1;
+    }
+
+    .btn {
+    text-align: center;
+    }
+</style>
+
+<body>
+    <ul>
+        <li><img src="https://placehold.jp/3d4070/ffffff/500x300.png?text=1" alt=""></li>
+        <li><img src="https://placehold.jp/703e3e/ffffff/500x300.png?text=2" alt=""></li>
+        <li><img src="https://placehold.jp/59703e/ffffff/500x300.png?text=3" alt=""></li>
+    </ul>
+    <div class="btn">
+        <button id="previous">前へ</button>
+        <button id="next">次へ</button>
+    </div>
+    
+    <script>
+        let active = 0;
+        const next=document.getElementById("next");
+        const prev=document.getElementById("previous");
+        const li =document.querySelectorAll("li");
+        li[active].classList.add("active");
+
+        const react=function(){
+            li[active].classList.remove("active");
+        }
+
+        const act=function(){
+            li[active].classList.add("active");
+        }
+
+        const up=function(){
+            react();
+            if(active==li.length-1){
+                active=0;
+            }else{
+                active++;
+            }
+            act();
+        };
+
+        const dwn=function(){
+            react();
+            if(active==0){
+                active=li.length-1;
+            }else{
+                active--;
+            }
+            act();
+        };
+        next.addEventListener('click',up);
+        prev.addEventListener('click',dwn);
+    </script>
+</body>
+</html>

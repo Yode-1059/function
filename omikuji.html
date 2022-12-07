@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>三国</title>
+</head>
+<body>
+    <button id="end" style="display: block;">とめる</button>
+    <button id="drw" style="display: block;">まわす</button>
+    <button id="daikitihosii" style="display:block;">忖度ボタン</button>
+    <img src="" alt="" id="out" style="display: block;">
+    <script>
+        let out =document.getElementById('out');
+        let end =document.getElementById('end');
+        let drw =document.getElementById('drw');
+        let dai =document.getElementById("daikitihosii");
+        function set(){
+            let cer=Math.floor(Math.random()*5);
+            const luc=['daikichi.png','chuukichi.png','syoukichi.png','kyou.png','daikyou.png']
+            out.setAttribute('src',`./img/${luc[cer]}`);
+        }
+        set();
+        drw.addEventListener('click',()=>{
+                    const time= setInterval(set,40);
+                    end.addEventListener('click',()=>{
+                            clearInterval(time);
+                        })
+                    dai.addEventListener('click',()=>{
+                    let cer=Math.floor(Math.random()*5);
+                    clearInterval(time);
+                    if(cer==1){
+                        set();
+                    }else{
+                        out.setAttribute('src','./img/daikichi.png');
+                    }
+                    })
+        })
+        
+        
+    </script>
+</body>
+</html>

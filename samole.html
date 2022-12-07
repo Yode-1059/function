@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function ki(ku){
+            let num;
+            num=ku*ku;
+            return num;
+        }
+        let ko= ki(2);
+        console.log(ko);
+
+        let bmi =getbmi(148,38);
+        console.log(bmi);
+        function getbmi(leng,hev){
+            return hev/(leng/100)**2;
+        }
+
+        const hunc=function (u,w){
+            return u**w;
+        }
+
+        console.log(hunc(2,4));
+
+        function keta(n){
+            if(n<10){
+                n="0"+n;
+            }
+            return n;
+        }
+
+        console.log(keta(10));
+
+        const Clkev=function(e){
+            console.log(e.target);
+        }
+
+        // window.addEventListener("click",(e)=>{
+        //     console.log(e.clientX);
+        // })
+
+        window.addEventListener("click",()=>{
+            Clkev(e);
+        })
+    </script>
+</body>
+</html>
